@@ -1,0 +1,17 @@
+<h1>Angular 2 CRUD Operation</h1>
+<ng-template #create>
+   <h3> Create New Article </h3>
+</ng-template>
+<div>
+ <form [formGroup]="articleForm" (ngSubmit)="onArticleFormSubmit()">
+  <table>
+    <tr><td>Enter Title</td><td><input formControlName="name">	     
+    </td></tr>
+    <tr><td>Enter Category</td><td><input formControlName="number">
+    </td></tr>	
+    <tr><td colspan="2">
+	    <button>CREATE</button>  
+    </td></tr>
+  </table>
+ </form> 
+ <br/>

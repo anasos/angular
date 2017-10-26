@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms'; // <-- NgModel lives here
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule }    from '@angular/http';
 import { FileSelectDirective, FileDropDirective, FileUploader, FileUploadModule } from 'ng2-file-upload/ng2-file-upload';
 import { AUTH_PROVIDERS } from 'angular2-jwt';
@@ -10,6 +10,7 @@ import { playerDetailComponent } from './player-detail.component'
 import { playerListComponent } from './player-list.component'
 import { playerImportComponent } from './player-import.component'
 import { Login } from './components/login/login.component'
+import { newPlayerComponent } from './components/new-player/new-player.component'
 
 import { PlayerService } from './player.service';
 import { AuthGuard } from './auth-guard.service'
@@ -29,6 +30,10 @@ const appRoutes: Routes = [
   {
     path: 'login',
     component: Login
+  },
+  {
+    path: 'new-player',
+    component: newPlayerComponent
   }
 ];
 
@@ -38,7 +43,8 @@ const appRoutes: Routes = [
     playerDetailComponent,
     playerListComponent,
     playerImportComponent,
-    Login
+    Login,
+    newPlayerComponent
   ],
   imports: [
   RouterModule.forRoot(
@@ -49,7 +55,8 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     RouterModule,
-    FileUploadModule
+    FileUploadModule,
+    ReactiveFormsModule
   ],
   providers: [PlayerService, AuthGuard, AuthService],
   bootstrap: [AppComponent]
