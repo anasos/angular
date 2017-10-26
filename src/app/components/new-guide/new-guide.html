@@ -1,0 +1,14 @@
+<ng-template #create>
+   <h3> Create New Guide </h3>
+</ng-template>
+<div>
+ <form [formGroup]="guideForm" (ngSubmit)="onGuideFormSubmit()">
+  <table>
+    <tr><td>Name</td><td><input formControlName="name">	     
+    </td></tr>
+    <tr><td colspan="2">
+	    <button>CREATE</button>  
+    </td></tr>
+  </table>
+ </form> 
+ <br/>

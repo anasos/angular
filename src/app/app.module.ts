@@ -11,8 +11,13 @@ import { playerListComponent } from './player-list.component'
 import { playerImportComponent } from './player-import.component'
 import { Login } from './components/login/login.component'
 import { newPlayerComponent } from './components/new-player/new-player.component'
+import { newGuideComponent } from './components/new-guide/new-guide.component'
+import { guideProfileComponent } from './components/guide-profile/guide-profile.component'
+
 
 import { PlayerService } from './player.service';
+import { GuideService } from './service/guide.service';
+
 import { AuthGuard } from './auth-guard.service'
 import { AuthService } from './auth.service';
 
@@ -34,6 +39,14 @@ const appRoutes: Routes = [
   {
     path: 'new-player',
     component: newPlayerComponent
+  },
+  {
+    path: 'new-guide',
+    component: newGuideComponent, canActivate: [AuthGuard] 
+  },
+  {
+    path: 'guide-profile',
+    component: guideProfileComponent, canActivate: [AuthGuard] 
   }
 ];
 
@@ -44,7 +57,9 @@ const appRoutes: Routes = [
     playerListComponent,
     playerImportComponent,
     Login,
-    newPlayerComponent
+    newPlayerComponent,
+    guideProfileComponent,
+    newGuideComponent
   ],
   imports: [
   RouterModule.forRoot(
@@ -58,7 +73,7 @@ const appRoutes: Routes = [
     FileUploadModule,
     ReactiveFormsModule
   ],
-  providers: [PlayerService, AuthGuard, AuthService],
+  providers: [PlayerService, GuideService, AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

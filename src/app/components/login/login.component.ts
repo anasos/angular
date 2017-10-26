@@ -17,18 +17,18 @@ export class Login {
   }
 
   login(event, username, password) {
-        this.auth.login(username, password)
-            .subscribe(result => {
-                if (result === true) {
-                    // login successful
-                    this.router.navigate(['players']);
-                } else {
-                    // login failed
-                    this.error = 'Username or password is incorrect';
-                }
-            }, error => {
-              this.error = error;
-            });
+    this.auth.login(username, password)
+        .subscribe(result => {
+            if (result === true) {
+                // login successful
+                this.router.navigate(['players']);
+            } else {
+                // login failed
+                this.error = 'Username or password is incorrect';
+            }
+        }, error => {
+          this.error = error;
+        });
     }
 
   // login(event, username, password) {
